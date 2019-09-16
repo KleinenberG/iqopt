@@ -1,0 +1,13 @@
+upstream minio_instances {
+    server {{ hostvars["node_1"]["ansible_all_ipv4_addresses"][0] }};
+    server {{ hostvars["node_2"]["ansible_all_ipv4_addresses"][0] }};
+    server {{ hostvars["node_3"]["ansible_all_ipv4_addresses"][0] }};
+}
+server {
+	listen 80;
+ 
+	location / {
+    		proxy_set_header Host $http_host;
+    		proxy_pass	http://minio_instances;
+	}
+}

@@ -1,0 +1,83 @@
+---
+- name: Configure minio
+  hosts: node
+  become: True
+  vars_files:
+    - var.yml
+  tasks:
+    - name: Create Minio group
+      group:
+        name: minio-user
+        state: present
+
+    - name: Create user
+      user:
+        name: minio-user
+        shell: /sbin/nologin
+
+#    - name: Download minio
+#      get_url:
+#        url: https://dl.min.io/server/minio/release/linux-amd64/minio
+#        dest: /usr/local/bin/
+#        owner: "minio-user"
+#        group: "minio-user"
+#        mode: "0755"
+
+    - name: Copy binary file minio
+      copy:
+        src: file/minio
+        dest: /usr/local/bin/
+        owner: minio-user
+        group: minio-user
+        mode: "0755"
+
+    - name: Create storage directory
+      file:
+        path: /usr/local/share/minio
+        state: directory
+        owner: minio-user
+        group: minio-user
+        mode: '0750'
+
+    - name: Create setup directory
+      file:
+        path: /etc/minio
+        state: directory
+        owner: minio-user
+        group: minio-user
+
+    - name: Copy config file minio
+      template:
+        src: templates/minio.j2
+        dest: /etc/default/minio
+                    
+    - name: Create the Minio server systemd config
+      template:
+        src: templates/minio.service.j2
+        dest: /etc/systemd/system/minio.service
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Enable and start the Minio service
+      service:
+        name: minio
+        state: started
+
+    - name: Install python-boto3
+      apt: 
+        name: python3-boto3 
+        state: present 
+        allow_unauthenticated: yes 
+        update_cache: yes
+
+    - name: create bucket
+      s3_bucket:
+        name: first
+        s3_url: http://{{ ansible_all_ipv4_addresses[0] }}:9000
+        aws_access_key: "{{ minio_access_key }}"
+        aws_secret_key: "{{ minio_secret_key }}"
+        ceph: true
+        state: present
+      ignore_errors: yes      
+

@@ -1,0 +1,9 @@
+[node]
+node_1 ansible_port=2222
+node_2 ansible_port=2200
+node_3 ansible_port=2201
+
+
+[all:vars]
+ansible_host=127.0.0.1
+

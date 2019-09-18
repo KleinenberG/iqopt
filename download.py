@@ -5,7 +5,7 @@ from minio.error import ResponseError
 
 client = Minio('192.168.10.3:9000', access_key='GJ1SUM26WPKUN17JX46J', secret_key='NANQKuboSKbI3UwZ95qkokADSblFohPuyZtBEECn', secure=False)
 #client.make_bucket('second')
-#client.fput_object('second', 'test.jpg', '/home/devup/projects/iqopt/test.jpg')
+client.fput_object('first', 'test.jpg', '/home/devup/projects/test.jpg')
 #data = client.fget_object('first', 'test.jpg', '/home/devup/projects/test.jpg')
 
 try:

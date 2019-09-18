@@ -709,6 +709,13 @@ ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBInDyI7C
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHTYTJjIUj4XPEMf7hDuFHXkp7IzCYIdHYnNVH1/2r1Q root@ubuntu-xenial
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDPp5dz9KEIFdZMFpkZ3vo3oMMX+S/2N5sm+1FwRtodufGaB2tosRsqI0AN6ChSuav1Vfo6BXmo1tGaxS5Y5SP9yMVUE+oJ0nqGD3e1AYMBi3xcnSrdRPOjZr/w9ipGQ+LlLfRN/q8iZwkLa2aAkEXZqsCgStYuIG2V5DGj4etmy46O8nBWGAzcxvR2WtKNwKs9EpK9Rh2jR/4wER4FaQ9HfR9jzgfn0sLnR4DMIViRDJEYfU95ftFzxlk9ThnM5DcJpmlXEL14YXIdNCRCzD/ye6et1PbeejbcDUIMAv38Qya3+bwwCpJTKquLoSqVk1JqtEN16IOhelCKX9njVXKv root@ubuntu-xenial
 -----END SSH HOST KEY KEYS-----
-[   40.726540] cloud-init[1573]: Cloud-init v. 19.1-1-gbaa47854-0ubuntu1~16.04.1 running 'modules:final' at Mon, 16 Sep 2019 10:27:17 +0000. Up 40.20 seconds.
+[   40.726540] cloud-init[1573]: Cloud-init v. 19.[46845.674291] e1000 0000:00:08.0 enp0s8: Reset adapter
+ Mon, 16 Sep 2019 10:27:17 +0000. Up 40.20 seconds.
 [   40.727184] cloud-init[1573]: ci-info: no authorized ssh keys fingerprints found for user ubuntu.
 [   40.727824] cloud-init[1573]: Cloud-init v. 19.1-1-gbaa47854-0ubuntu1~16.04.1 finished at Mon, 16 Sep 2019 10:27:17 +0000. Datasource DataSourceNoCloud [seed=/dev/sdb][dsmode=net].  Up 40.69 seconds
+[46724.779331] e1000 0000:00:08.0 enp0s8: Reset adapter
+[46824.366372] e1000 0000:00:08.0 enp0s8: Reset adapter
+[46900.432042] e1000 0000:00:08.0 enp0s8: Reset adapter
+[46945.475280] e1000 0000:00:08.0 enp0s8: Reset adapter
+[47516.481118] e1000 0000:00:08.0 enp0s8: Reset adapter
+[47614.634602] e1000 0000:00:08.0 enp0s8: Reset adapter

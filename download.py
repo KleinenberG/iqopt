@@ -21,13 +21,3 @@ try:
 
 except ResponseError as err:
  print(err)
-
-
-
- #try:
- #    data = 1.sh
- #    with open('1.sh', 'a+') as new_data:
- #        for d in data.stream(32*1024):
- #           new_data.write(d)
-
-#
